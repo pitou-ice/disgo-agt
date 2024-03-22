@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	bot "figuriste.com/disgo-agt/bot"
+	"figuriste.com/disgo-agt/bot"
 	"github.com/joho/godotenv"
 )
 
@@ -15,7 +15,10 @@ func main() {
 	}
 
 	botToken := os.Getenv("DISCORD_BOT_TOKEN")
+	systemPrompt := os.Getenv("SYSTEM_PROMPT")
 
 	bot.BotToken = botToken
+	bot.SystemPrompt = systemPrompt
+
 	bot.Run() // call the run function of bot/bot.go
 }
