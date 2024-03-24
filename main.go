@@ -15,9 +15,11 @@ func main() {
 	}
 
 	botToken := os.Getenv("DISCORD_BOT_TOKEN")
+	privateChannelID := os.Getenv("PRIVATE_CHANNEL_ID")
 	systemPrompt := os.Getenv("SYSTEM_PROMPT")
 
 	bot.BotToken = botToken
+	bot.PrivateChannelID = privateChannelID
 	bot.SystemPrompt = systemPrompt
 
 	bot.Run() // call the run function of bot/bot.go

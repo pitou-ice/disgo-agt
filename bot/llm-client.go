@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	PROMPT_TEMPLATE = "<im_start>system\n%s<|im_end|>\n<|im_start|>user\n%s<|im_end|>\n<|im_start|>assistant\n"
+	PROMPT_TEMPLATE = "<im_start>system\n%s\nYou're talking to %s.<|im_end|>\n<|im_start|>user\n%s<|im_end|>\n<|im_start|>assistant\n"
 	N_PREDICT       = 134
 	STOP_WORD       = "<|im_end|>"
 	TEMPERATURE     = 2.0
@@ -32,10 +32,10 @@ type ResponseData struct {
 	Content string `json:"content"`
 }
 
-func GetCompletion(userPrompt string) (string, error) {
+func GetCompletion(userName string, userPrompt string) (string, error) {
 	// Create JSON body
 	requestBody := RequestBody{
-		Prompt:       fmt.Sprintf(PROMPT_TEMPLATE, SystemPrompt, userPrompt),
+		Prompt:       fmt.Sprintf(PROMPT_TEMPLATE, SystemPrompt, userName, userPrompt),
 		NPredict:     N_PREDICT,
 		Stop:         STOP_WORD,
 		Temperature:  TEMPERATURE,

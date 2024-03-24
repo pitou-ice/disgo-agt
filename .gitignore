@@ -1,3 +1,6 @@
+# Executable
+disgo-agt
+
 # Environment files
 .env
 
@@ -5,3 +8,6 @@
 *.o
 *.a
 *.so
+
+# Models
+models/
